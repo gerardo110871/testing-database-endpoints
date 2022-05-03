@@ -31,6 +31,16 @@ app.get("/countries", (req, res) => {
   });
 });
 
+app.post('/users', (req, res) => {
+  // console.log(req.body);
+  const {first_name, last_name,username, email, password} = req.body;
+  sequelize.query(`
+    INSERT INTO users (first_name, last_name, username, email, password)
+    VALUES('${first_name}', '${last_name}', '${username}', '${email}', '${password}')
+  `)
+})
+
+
 const { SERVER_PORT } = process.env;
 
 app.listen(SERVER_PORT, function (req, res) {

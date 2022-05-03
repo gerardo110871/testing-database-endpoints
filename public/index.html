@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>TESTING BACKEND</title>
 </head>
 <body>
-    <H1>SIGNUP SHEET</H1>
+    <H1>SIGNUP</H1>
 
-    <form name="test">
-        <input type="text" name="firstName" placeholder="first name"/>
-        <input type="text" name="lastName" placeholder="last name"/>
-        <input type="text" name="email" placeholder="email"/>
+    <form name="form-test" class="form">
+        <input name='firstName'type="text"  placeholder="First Name" required/><br><br>
+        <input name='lastName' type="text"  placeholder="Last Name" required/><br><br>
+        <input name='username' type="text"  placeholder="Choose Username" required/><br><br>
+        <input name='email' type="email"  placeholder="Email" required/><br><br>
+        <input name='password' type="password"  placeholder="Create Password" required/><br><br>
         <button id="submitBtn">submit</button>
-    </form>
+    </form><br><br>
 
-    <select name="" id="dropDown">
+    <select id="dropDown">
         <option value="null">select a name</option>
     </select>
-    <select name="" id="countries">
+    <select id="countries">
         <option value="countries">select a country</option>
-    </select>
-    <button id="getAll">get all</button>
-
-    <div id="sql"></div>
+    </select><br><br>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>

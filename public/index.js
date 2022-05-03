@@ -1,9 +1,15 @@
-const form = document.test;
-const getAllBtn = document.getElementById("getAll");
-const section = document.getElementById("sql");
+// const res = require("express/lib/response");
+//form
+const form = document['form-test']
+//dropdown list
 const dropDown = document.getElementById("dropDown");
+//form input
+const fName = document.getElementById("fName")
+const lName = document.getElementById("lName")
+const email = document.getElementById("email")
+const submitBtn = document.getElementById("submitBtn");
+baseURL = "http://localhost:8000";
 
-baseURL = "http://localhost:4565";
 
 //try to get the names in the database to the front end
 function getAll() {
@@ -28,6 +34,38 @@ function getAllCountries() {
     })
   })
 }
-getAllCountries()
-getAll()
-// form.addEventListener("click", getAll);
+
+
+
+function addToDatabase(e) {
+  e.preventDefault();
+  
+  const fName = form.firstName.value
+  const lName = form.lastName.value
+  const username = form.username.value
+  const email = form.email.value
+  const password = form.password.value
+  
+  const body = {
+  
+  first_name: fName,
+  last_name: lName,
+  username: username,
+  email: email,
+  password: password
+}
+
+    console.log(body)
+  axios.post(`${baseURL}/users`, body)
+    .then(res => console.log(res.data))
+    .catch((err) => alert('username is already in use'))
+}
+
+//this will populate the dropdowns
+
+// getAllCountries()
+// getAll()
+
+
+//event listeners
+form.addEventListener("submit", addToDatabase);
