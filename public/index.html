@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./index.css">
     <title>TESTING BACKEND</title>
 </head>
 <body>
     <H1>SIGNUP</H1>
 
     <form name="form-test" class="form">
-        <input name='firstName'type="text"  placeholder="First Name" required/><br><br>
-        <input name='lastName' type="text"  placeholder="Last Name" required/><br><br>
-        <input name='username' type="text"  placeholder="Choose Username" required/><br><br>
-        <input name='email' type="email"  placeholder="Email" required/><br><br>
-        <input name='password' type="password"  placeholder="Create Password" required/><br><br>
+
+        <h6>First name:</h6>
+        <input id='firstName' name='firstName'type="text"  placeholder="First Name" required/>
+        <h6>Last name:</h6>
+        <input id='lastName' name='lastName' type="text"  placeholder="Last Name" required/>
+        <h6>Username:</h6>
+        <input id='username' name='username' type="text"  placeholder="Choose Username" required/>
+        <h6>Email:</h6>
+        <input id='email' name='email' type="email"  placeholder="Email" required/>
+        <h6>Password:</h6>
+        <input id='password' name='password' type="password"  placeholder="Create Password" required/><br><br>
+
         <button id="submitBtn">submit</button>
     </form><br><br>
 
     <select id="dropDown">
         <option value="null">select a name</option>
-    </select>
+    </select><br><br>
     <select id="countries">
         <option value="countries">select a country</option>
     </select><br><br>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>

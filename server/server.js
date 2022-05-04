@@ -4,6 +4,8 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 
+const path = require("path");
+
 const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
   dialect: "postgres",
   dialectOptions: {
@@ -15,6 +17,15 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
 
 app.use(express.json());
 app.use(cors());
+
+//we use this to host the main page on our baseURL
+app.use(express.static('public'))
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'))
+})
+//
+
 
 app.get("/users", (req, res) => {
   sequelize.query(`SELECT first_name, last_name, email 

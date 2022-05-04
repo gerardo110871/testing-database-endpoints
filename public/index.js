@@ -1,4 +1,3 @@
-// const res = require("express/lib/response");
 //form
 const form = document['form-test']
 //dropdown list
@@ -8,6 +7,7 @@ const fName = document.getElementById("fName")
 const lName = document.getElementById("lName")
 const email = document.getElementById("email")
 const submitBtn = document.getElementById("submitBtn");
+
 baseURL = "http://localhost:8000";
 
 
@@ -35,16 +35,29 @@ function getAllCountries() {
   })
 }
 
+function defaultForm() {
+  const inputs = document.querySelector('.firstName',
+  '.lastName',
+  '.username',
+  '.email',
+  '.password');
 
+  inputs.forEach(input => {
+    input.value = '';
+  });
+}
 
 function addToDatabase(e) {
   e.preventDefault();
+  defaultForm()
   
   const fName = form.firstName.value
   const lName = form.lastName.value
   const username = form.username.value
   const email = form.email.value
   const password = form.password.value
+
+  
   
   const body = {
   
@@ -54,18 +67,17 @@ function addToDatabase(e) {
   email: email,
   password: password
 }
-
-    console.log(body)
+  console.log(body)
   axios.post(`${baseURL}/users`, body)
     .then(res => console.log(res.data))
     .catch((err) => alert('username is already in use'))
 }
 
 //this will populate the dropdowns
-
-// getAllCountries()
-// getAll()
+getAllCountries()
+getAll()
 
 
 //event listeners
+//make sure to use 'submit' as the listener for form buttons instead of 'click'
 form.addEventListener("submit", addToDatabase);
